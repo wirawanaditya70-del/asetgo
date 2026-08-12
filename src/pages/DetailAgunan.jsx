@@ -110,6 +110,10 @@ function DetailAgunan({ data, onBack }) {
       nama: "Gita",
       nomor: "628814649572",
     },
+    {
+      nama: "Puspa",
+      nomor: "6287784793547",
+    },
   ];
 
   function getReferralContact() {
