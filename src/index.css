@@ -4397,3 +4397,57 @@ footer {
     background-size: 38px 38px;
   }
 }
+
+
+/* =========================================
+   FINAL FIX - DETAIL AGUNAN MOBILE BUTTON
+   WhatsApp & Bagikan
+========================================= */
+
+@media (max-width: 600px) {
+  .contact-box {
+    padding: 16px;
+  }
+
+  .contact-buttons {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-top: 17px;
+  }
+
+  .whatsapp-button,
+  .contact-button {
+    width: 100%;
+    min-width: 0;
+    height: 54px;
+    min-height: 54px;
+    flex: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 16px;
+    box-sizing: border-box;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .whatsapp-button {
+    border: none;
+    background: var(--primary);
+    color: white;
+  }
+
+  .contact-button {
+    border: 1px solid var(--primary);
+    background: white;
+    color: var(--primary);
+  }
+}
