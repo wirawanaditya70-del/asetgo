@@ -14,11 +14,10 @@ function LoginAdmin({ onBack, onLogin }) {
     setLoading(true);
     setError("");
 
-    const { data, error } =
-      await supabase.auth.signInWithPassword({
-        email,
-        password,
-      });
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
     if (error) {
       setError("Email atau password salah.");
@@ -27,7 +26,6 @@ function LoginAdmin({ onBack, onLogin }) {
     }
 
     setLoading(false);
-
     onLogin(data.user);
   }
 
@@ -56,9 +54,7 @@ function LoginAdmin({ onBack, onLogin }) {
           ADMINISTRATOR
         </div>
 
-        <h1>
-          Login Admin
-        </h1>
+        <h1>Login Admin</h1>
 
         <p className="login-description">
           Masuk untuk mengelola data agunan bank.
@@ -67,9 +63,7 @@ function LoginAdmin({ onBack, onLogin }) {
         <form onSubmit={handleLogin}>
 
           <div className="form-group">
-            <label>
-              Email
-            </label>
+            <label>Email</label>
 
             <input
               type="email"
@@ -82,9 +76,7 @@ function LoginAdmin({ onBack, onLogin }) {
           </div>
 
           <div className="form-group">
-            <label>
-              Password
-            </label>
+            <label>Password</label>
 
             <input
               type="password"
