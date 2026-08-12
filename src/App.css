@@ -184,98 +184,118 @@
 }
 
 /* =========================================================
-   LOGIN ADMIN - ASETGO
+   ASETGO - LOGIN ADMIN
    ========================================================= */
 
-.login-page {
+.admin-login-page {
   min-height: 100vh;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
   box-sizing: border-box;
+  padding: 40px 20px;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(0, 121, 107, 0.08),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(212, 166, 62, 0.08),
+      transparent 35%
+    ),
+    #f5faf8;
   position: relative;
   overflow: hidden;
 }
 
-/* Card login */
-.login-card {
+
+/* CARD */
+
+.admin-login-card {
   width: 100%;
   max-width: 430px;
-  padding: 40px;
   box-sizing: border-box;
+  padding: 40px;
   background: #ffffff;
   border: 1px solid rgba(0, 82, 74, 0.10);
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 70, 60, 0.12);
   position: relative;
-  z-index: 2;
+  z-index: 10;
 }
 
-/* Tombol kembali */
-.login-back {
-  border: none;
-  background: transparent;
+
+/* KEMBALI */
+
+.admin-login-back {
+  border: 0;
   padding: 0;
-  margin-bottom: 28px;
+  margin: 0 0 28px 0;
+  background: transparent;
   color: #00695c;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
-.login-back:hover {
+.admin-login-back:hover {
   color: #004d40;
 }
 
+
 /* =========================================================
-   LOGO
+   LOGO ASETGO
    ========================================================= */
 
-.login-logo {
+.admin-login-brand {
   width: 100%;
+  height: 58px;
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 26px;
+
+  margin-bottom: 24px;
+
   position: relative;
+  overflow: hidden;
 }
 
-/* LOGO TIDAK BOLEH MEMBESAR */
-.login-logo-image {
+
+/*
+   PENTING:
+   Logo dibatasi secara eksplisit.
+*/
+
+.admin-login-brand-image {
   display: block;
+
   width: 150px !important;
   height: auto !important;
+
   max-width: 150px !important;
-  max-height: 60px !important;
+  max-height: 58px !important;
+
   object-fit: contain;
+
   position: static !important;
+  inset: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
   transform: none !important;
 }
 
-/* Pastikan tidak ada gambar login yang menjadi fullscreen */
-.login-page img {
-  position: static;
-  transform: none;
-}
-
-/* Tetapi logo login tetap dibatasi */
-.login-page .login-logo img {
-  width: 150px !important;
-  height: auto !important;
-  max-width: 150px !important;
-  max-height: 60px !important;
-  object-fit: contain;
-  position: static !important;
-  transform: none !important;
-}
 
 /* =========================================================
-   JUDUL LOGIN
+   JUDUL
    ========================================================= */
 
-.login-label {
+.admin-login-label {
   color: #00695c;
   font-size: 11px;
   font-weight: 800;
@@ -283,30 +303,31 @@
   margin-bottom: 8px;
 }
 
-.login-card h1 {
-  margin: 0 0 8px;
+.admin-login-card h1 {
+  margin: 0 0 8px 0;
   color: #172a27;
   font-size: 32px;
   line-height: 1.15;
   font-weight: 700;
 }
 
-.login-description {
-  margin: 0 0 28px;
+.admin-login-description {
+  margin: 0 0 28px 0;
   color: #71807d;
   font-size: 14px;
   line-height: 1.6;
 }
 
+
 /* =========================================================
    FORM
    ========================================================= */
 
-.login-card .form-group {
+.admin-login-form-group {
   margin-bottom: 20px;
 }
 
-.login-card .form-group label {
+.admin-login-form-group label {
   display: block;
   margin-bottom: 8px;
   color: #1b2d2a;
@@ -314,100 +335,103 @@
   font-weight: 600;
 }
 
-.login-card .form-group input {
+.admin-login-form-group input {
   width: 100%;
   height: 48px;
-  padding: 0 14px;
   box-sizing: border-box;
+
+  padding: 0 14px;
+
   border: 1px solid #d5dfdc;
   border-radius: 9px;
+
   background: #ffffff;
   color: #1b2d2a;
+
   font-size: 14px;
   outline: none;
+
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.login-card .form-group input:focus {
+.admin-login-form-group input:focus {
   border-color: #00796b;
   box-shadow: 0 0 0 3px rgba(0, 121, 107, 0.10);
 }
 
-.login-card .form-group input:disabled {
-  background: #f5f7f6;
-  cursor: not-allowed;
-}
 
-/* =========================================================
-   ERROR
-   ========================================================= */
+/* ERROR */
 
-.login-error {
+.admin-login-error {
   margin-bottom: 16px;
   padding: 11px 13px;
+
   border-radius: 8px;
+
   background: #fff1f1;
   border: 1px solid #ffd0d0;
+
   color: #c62828;
   font-size: 13px;
 }
 
-/* =========================================================
-   TOMBOL LOGIN
-   ========================================================= */
 
-.login-submit {
+/* BUTTON */
+
+.admin-login-submit {
   width: 100%;
   height: 48px;
+
   border: none;
   border-radius: 9px;
+
   background: #00796b;
   color: #ffffff;
+
   font-size: 14px;
   font-weight: 700;
+
   cursor: pointer;
+
   transition:
     background 0.2s ease,
-    transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.login-submit:hover {
+.admin-login-submit:hover {
   background: #00695c;
   box-shadow: 0 8px 20px rgba(0, 121, 107, 0.20);
 }
 
-.login-submit:active {
-  transform: translateY(1px);
-}
-
-.login-submit:disabled {
+.admin-login-submit:disabled {
   opacity: 0.65;
   cursor: not-allowed;
 }
 
+
 /* =========================================================
-   RESPONSIVE
+   MOBILE
    ========================================================= */
 
 @media (max-width: 600px) {
-  .login-page {
+
+  .admin-login-page {
     padding: 24px 16px;
   }
 
-  .login-card {
+  .admin-login-card {
     padding: 30px 24px;
     border-radius: 16px;
   }
 
-  .login-logo-image {
+  .admin-login-brand-image {
     width: 140px !important;
     max-width: 140px !important;
   }
 
-  .login-card h1 {
+  .admin-login-card h1 {
     font-size: 28px;
   }
 }
