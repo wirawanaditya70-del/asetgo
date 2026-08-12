@@ -27,16 +27,16 @@ function LoginAdmin({ onBack, onLogin }) {
     }
 
     setLoading(false);
+
     onLogin(data.user);
   }
 
   return (
-    <div className="admin-login-page">
-
-      <div className="admin-login-card">
+    <div className="login-page">
+      <div className="login-card">
 
         <button
-          className="admin-login-back"
+          className="login-back"
           onClick={onBack}
           type="button"
         >
@@ -44,15 +44,15 @@ function LoginAdmin({ onBack, onLogin }) {
         </button>
 
         {/* LOGO ASETGO */}
-        <div className="admin-login-brand">
+        <div className="login-logo">
           <img
             src={asetgoLogo}
             alt="AsetGo"
-            className="admin-login-brand-image"
+            className="login-logo-image"
           />
         </div>
 
-        <div className="admin-login-label">
+        <div className="login-label">
           ADMINISTRATOR
         </div>
 
@@ -60,14 +60,16 @@ function LoginAdmin({ onBack, onLogin }) {
           Login Admin
         </h1>
 
-        <p className="admin-login-description">
+        <p className="login-description">
           Masuk untuk mengelola data agunan bank.
         </p>
 
         <form onSubmit={handleLogin}>
 
-          <div className="admin-login-form-group">
-            <label>Email</label>
+          <div className="form-group">
+            <label>
+              Email
+            </label>
 
             <input
               type="email"
@@ -79,8 +81,10 @@ function LoginAdmin({ onBack, onLogin }) {
             />
           </div>
 
-          <div className="admin-login-form-group">
-            <label>Password</label>
+          <div className="form-group">
+            <label>
+              Password
+            </label>
 
             <input
               type="password"
@@ -93,14 +97,14 @@ function LoginAdmin({ onBack, onLogin }) {
           </div>
 
           {error && (
-            <div className="admin-login-error">
+            <div className="login-error">
               {error}
             </div>
           )}
 
           <button
             type="submit"
-            className="admin-login-submit"
+            className="login-submit"
             disabled={loading}
           >
             {loading
@@ -111,7 +115,6 @@ function LoginAdmin({ onBack, onLogin }) {
         </form>
 
       </div>
-
     </div>
   );
 }
