@@ -19,6 +19,25 @@ function DetailAgunan({ data, onBack }) {
   const [copied, setCopied] = useState(false);
   const [showWhatsAppContacts, setShowWhatsAppContacts] = useState(false);
 
+  // =========================================
+  // REFERRAL WHATSAPP
+  // Contoh: https://asetgo.vercel.app/?ref=gani
+  // Referral disimpan selama sesi browser.
+  // Tidak mengubah struktur/database agunan.
+  // =========================================
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const ref = String(params.get("ref") || "").trim().toLowerCase();
+
+      if (ref) {
+        sessionStorage.setItem("asetgo_referral", ref);
+      }
+    } catch (error) {
+      console.warn("Referral tidak dapat disimpan:", error);
+    }
+  }, []);
+
   useEffect(() => {
     setActiveImage(0);
     setLightbox(false);
@@ -72,26 +91,69 @@ function DetailAgunan({ data, onBack }) {
   // =====================================================
   const whatsappContacts = [
     {
-      nama: "Admin 1 (Wira)",
+      nama: "Wira",
       nomor: "6281236807690",
     },
     {
-      nama: "Admin 2 (Agus)",
-      nomor: "6281236807690",
+      nama: "Sari",
+      nomor: "6287785537442",
     },
     {
-      nama: "Admin 3 (Riza)",
-      nomor: "6281236807690",
+      nama: "Riza",
+      nomor: "6281916706455",
     },
-    // Contoh menambah teman:
-    // {
-    //   nama: "Nama Teman",
-    //   nomor: "628xxxxxxxxxx",
-    // },
+    {
+      nama: "Gani",
+      nomor: "6287760331388",
+    },
+    {
+      nama: "Gita",
+      nomor: "628814649572",
+    },
   ];
 
+  function getReferralContact() {
+    try {
+      const ref = String(
+        sessionStorage.getItem("asetgo_referral") || ""
+      )
+        .trim()
+        .toLowerCase();
+
+      if (!ref) return null;
+
+      // Referral mengikuti nama yang dipakai pada URL.
+      // Contoh: ?ref=gani -> Admin 4 (Gani).
+      return (
+        whatsappContacts.find((contact) => {
+          const nama = String(contact.nama || "").toLowerCase();
+          return (
+            nama.includes(`(${ref})`) ||
+            nama.includes(ref)
+          );
+        }) || null
+      );
+    } catch (error) {
+      console.warn("Gagal membaca referral:", error);
+      return null;
+    }
+  }
+
   function openWhatsApp() {
-    setShowWhatsAppContacts(true);
+    const params = new URLSearchParams(window.location.search);
+    const referral = String(
+      params.get("ref") || ""
+    ).trim().toLowerCase();
+
+    // Jika ada referral yang valid, langsung ke orang tersebut.
+    // Jika tidak ada referral, default ke Wira.
+    const contact =
+      whatsappContacts.find(
+        (item) =>
+          item.nama.toLowerCase() === referral
+      ) || whatsappContacts[0];
+
+    openWhatsAppContact(contact);
   }
 
   function openWhatsAppContact(contact) {
