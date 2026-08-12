@@ -67,6 +67,8 @@ function formatAgunan(item) {
 
     status: item.status,
 
+    views: Number(item.views || 0),
+
     deskripsi: item.deskripsi,
 
     image: fotoUrls[0] || null,
@@ -709,6 +711,43 @@ useEffect(() => {
   hargaMax,
   sortHarga,
 ]);
+
+  // =========================================
+  // VIEW COUNTER
+  // =========================================
+
+  async function handleOpenDetail(item) {
+    const currentViews = Number(item.views || 0);
+    const nextViews = currentViews + 1;
+
+    const updatedItem = {
+      ...item,
+      views: nextViews,
+    };
+
+    // Buka detail langsung dengan angka terbaru.
+    setSelectedAgunan(updatedItem);
+
+    // Simpan jumlah view ke Supabase.
+    const { error: viewError } = await supabase
+      .from("agunan")
+      .update({ views: nextViews })
+      .eq("id", item.id);
+
+    if (viewError) {
+      console.error("Gagal menyimpan jumlah view:", viewError);
+      return;
+    }
+
+    // Sinkronkan angka view di daftar publik.
+    setAgunanData((current) =>
+      current.map((agunan) =>
+        agunan.id === item.id
+          ? { ...agunan, views: nextViews }
+          : agunan
+      )
+    );
+  }
 
   // =========================================
   // LOADING
@@ -1625,10 +1664,36 @@ useEffect(() => {
                     📍 {item.lokasi}
                   </div>
 
-                  <div className="property-price">
-                    {formatRupiah(
-                      item.harga
-                    )}
+                  <div
+                    className="property-price-row"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: "12px",
+                    }}
+                  >
+                    <div className="property-price">
+                      {formatRupiah(item.harga)}
+                    </div>
+
+                    <div
+                      className="property-views"
+                      title={`${Number(item.views || 0)} kali dilihat`}
+                      style={{
+                        flexShrink: 0,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "5px",
+                        color: "#71817f",
+                        fontSize: "12px",
+                        fontWeight: "600",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <span aria-hidden="true">👁</span>
+                      <span>{Number(item.views || 0)}</span>
+                    </div>
                   </div>
 
                   <div className="property-details">
@@ -1670,9 +1735,7 @@ useEffect(() => {
                   <button
                     className="detail-button"
                     onClick={() =>
-                      setSelectedAgunan(
-                        item
-                      )
+                      handleOpenDetail(item)
                     }
                   >
                     Lihat Detail
