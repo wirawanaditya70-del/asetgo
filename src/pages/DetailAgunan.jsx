@@ -152,8 +152,31 @@ function DetailAgunan({ data, onBack }) {
     <div className="detail-page">
       <header className="detail-header">
         <div className="container detail-header-inner">
+          <button
+            type="button"
+            className="detail-brand"
+            onClick={onBack}
+            aria-label="Kembali ke daftar agunan"
+          >
+            <img
+              src={asetgoLogo}
+              alt="AsetGo"
+              className="detail-brand-logo"
+            />
+            <span className="detail-brand-copy">
+              <strong>ASETGO</strong>
+              <small>PLATFORM ASET</small>
+            </span>
+          </button>
+
+          <nav className="detail-header-nav" aria-label="Navigasi">
+            <button type="button" onClick={onBack}>
+              Daftar Agunan
+            </button>
+          </nav>
+
           <button type="button" className="back-button" onClick={onBack}>
-            ← Kembali ke Daftar Agunan
+            ← Kembali
           </button>
         </div>
       </header>
