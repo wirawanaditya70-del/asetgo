@@ -163,10 +163,6 @@ function DetailAgunan({ data, onBack }) {
               alt="AsetGo"
               className="detail-brand-logo"
             />
-            <span className="detail-brand-copy">
-              <strong>ASETGO</strong>
-              <small>PLATFORM ASET</small>
-            </span>
           </button>
 
           <nav className="detail-header-nav" aria-label="Navigasi">
