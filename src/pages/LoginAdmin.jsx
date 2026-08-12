@@ -48,6 +48,7 @@ function LoginAdmin({ onBack, onLogin }) {
           <img
             src={asetgoLogo}
             alt="AsetGo"
+            className="login-logo-image"
           />
         </div>
 
@@ -74,9 +75,7 @@ function LoginAdmin({ onBack, onLogin }) {
               type="email"
               placeholder="Masukkan email admin"
               value={email}
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
+              onChange={(e) => setEmail(e.target.value)}
               required
               disabled={loading}
             />
@@ -91,9 +90,7 @@ function LoginAdmin({ onBack, onLogin }) {
               type="password"
               placeholder="Masukkan password"
               value={password}
-              onChange={(e) =>
-                setPassword(e.target.value)
-              }
+              onChange={(e) => setPassword(e.target.value)}
               required
               disabled={loading}
             />

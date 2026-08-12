@@ -649,18 +649,11 @@ function FormAgunan({ onBack, onSaved }) {
       <header className="form-agunan-header">
 
         <div className="admin-brand">
-
           <img
             src={asetgoLogo}
             alt="AsetGo"
-            style={{
-              width: "150px",
-              height: "auto",
-              display: "block",
-              objectFit: "contain",
-            }}
+            className="admin-brand-image"
           />
-
         </div>
 
         <button
