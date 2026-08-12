@@ -4275,3 +4275,125 @@ footer {
     opacity: 0.7;
   }
 }
+
+
+/* =========================================================
+   ASETGO — FINAL HERO COLOR FIX
+   Final authoritative override.
+   ========================================================= */
+
+.hero {
+  min-height: 565px;
+  position: relative;
+  overflow: hidden;
+  background: #003f38;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      ellipse 52% 105% at 88% 50%,
+      rgba(232, 184, 63, 0.34) 0%,
+      rgba(218, 169, 48, 0.22) 22%,
+      rgba(198, 151, 39, 0.10) 42%,
+      transparent 72%
+    ),
+    radial-gradient(
+      circle at 91% 18%,
+      rgba(255, 216, 101, 0.38) 0%,
+      rgba(244, 196, 70, 0.20) 18%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse 65% 100% at 58% 50%,
+      rgba(7, 103, 91, 0.42) 0%,
+      transparent 72%
+    ),
+    linear-gradient(
+      110deg,
+      #003A34 0%,
+      #004B43 36%,
+      #075E54 62%,
+      #06483F 100%
+    );
+}
+
+.hero-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 44px 44px;
+
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    rgba(0,0,0,.45) 48%,
+    transparent 82%
+  );
+
+  pointer-events: none;
+}
+
+.hero-background::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -155px;
+  top: -125px;
+  border-radius: 50%;
+
+  border: 1px solid rgba(244, 194, 67, 0.20);
+
+  box-shadow:
+    0 0 0 55px rgba(244, 194, 67, 0.055),
+    0 0 0 110px rgba(244, 194, 67, 0.032),
+    0 0 0 165px rgba(244, 194, 67, 0.018);
+
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+:root {
+  --secondary: #E9B83F;
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 540px;
+  }
+
+  .hero-background::after {
+    width: 300px;
+    height: 300px;
+    right: -120px;
+    top: -125px;
+  }
+
+  .hero-background::before {
+    opacity: 0.10;
+    background-size: 38px 38px;
+  }
+}
