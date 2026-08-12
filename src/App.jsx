@@ -87,6 +87,56 @@ function formatAgunan(item) {
 // APP
 // =========================================
 
+
+function StatIcon({ type }) {
+  const common = {
+    width: 25,
+    height: 25,
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.8,
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    "aria-hidden": true,
+  };
+
+  if (type === "total") {
+    return (
+      <svg {...common}>
+        <rect x="4" y="3" width="16" height="18" rx="2" />
+        <path d="M8 7h8M8 11h8M8 15h3M15 15h1" />
+      </svg>
+    );
+  }
+
+  if (type === "available") {
+    return (
+      <svg {...common}>
+        <path d="M12 3l2.2 1.6 2.7-.1 1.1 2.5 2.2 1.5-.8 2.6.8 2.6-2.2 1.5-1.1 2.5-2.7-.1L12 21l-2.2-1.6-2.7.1L6 17l-2.2-1.5.8-2.6-.8-2.6L6 8l1.1-2.5 2.7.1L12 3z" />
+        <path d="M8.7 12.2l2.1 2.1 4.5-4.6" />
+      </svg>
+    );
+  }
+
+  if (type === "sold") {
+    return (
+      <svg {...common}>
+        <path d="M3 5h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 1.9-1.4L20 9H6" />
+        <circle cx="10" cy="20" r="1.2" />
+        <circle cx="17" cy="20" r="1.2" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg {...common}>
+      <path d="M20 10.2c0 5.1-8 10.2-8 10.2S4 15.3 4 10.2a8 8 0 1 1 16 0z" />
+      <circle cx="12" cy="10" r="2.6" />
+    </svg>
+  );
+}
+
 function App() {
   const [agunanData, setAgunanData] = useState([]);
 
@@ -1088,59 +1138,49 @@ useEffect(() => {
       {/* ================= STATISTIK ================= */}
 
       <section className="statistics">
-
         <div className="container statistics-grid">
 
           <div className="stat-item">
-
-            <div className="stat-number">
-              {totalAset}
+            <div className="stat-icon">
+              <StatIcon type="total" />
             </div>
-
-            <div className="stat-label">
-              Total Aset
+            <div className="stat-content">
+              <div className="stat-number">{totalAset}</div>
+              <div className="stat-label">Total Aset</div>
             </div>
-
           </div>
 
           <div className="stat-item">
-
-            <div className="stat-number">
-              {asetTersedia}
+            <div className="stat-icon">
+              <StatIcon type="available" />
             </div>
-
-            <div className="stat-label">
-              Aset Tersedia
+            <div className="stat-content">
+              <div className="stat-number">{asetTersedia}</div>
+              <div className="stat-label">Aset Tersedia</div>
             </div>
-
           </div>
 
           <div className="stat-item">
-
-            <div className="stat-number">
-              {asetTerjual}
+            <div className="stat-icon">
+              <StatIcon type="sold" />
             </div>
-
-            <div className="stat-label">
-              Aset Terjual
+            <div className="stat-content">
+              <div className="stat-number">{asetTerjual}</div>
+              <div className="stat-label">Aset Terjual</div>
             </div>
-
           </div>
 
           <div className="stat-item">
-
-            <div className="stat-number">
-              {jumlahLokasi}
+            <div className="stat-icon">
+              <StatIcon type="location" />
             </div>
-
-            <div className="stat-label">
-              Lokasi
+            <div className="stat-content">
+              <div className="stat-number">{jumlahLokasi}</div>
+              <div className="stat-label">Lokasi</div>
             </div>
-
           </div>
 
         </div>
-
       </section>
 
       {/* ================= DAFTAR AGUNAN ================= */}
