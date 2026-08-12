@@ -4095,12 +4095,13 @@ footer {
 }
 
 .detail-brand-logo {
-  width: 145px;
-  height: auto;
-  max-height: 46px;
-  object-fit: contain;
+  display: block !important;
+  width: 220px !important;
+  height: 72px !important;
+  max-width: 220px !important;
+  max-height: 72px !important;
+  object-fit: contain !important;
   object-position: left center;
-  display: block;
 }
 
 .detail-header-nav {
@@ -4182,9 +4183,12 @@ footer {
   }
 
   .detail-brand-logo {
-    width: 130px;
-    height: auto;
-    max-height: 42px;
+    width: 175px !important;
+    height: 58px !important;
+    max-width: 175px !important;
+    max-height: 58px !important;
+    object-fit: contain !important;
+    object-position: left center;
   }
 
   .detail-header .back-button {
