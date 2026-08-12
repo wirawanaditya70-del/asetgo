@@ -7,7 +7,7 @@
 :root {
   --primary: #075e54;
   --primary-dark: #043f39;
-  --secondary: #d8aa52;
+  --secondary: #e8b83f;
   --background: #f5f7f6;
   --text: #182321;
   --muted: #6d7876;
@@ -181,26 +181,48 @@ a {
 
 .hero-background {
   position: absolute;
-
   inset: 0;
+  overflow: hidden;
 
   background:
-    linear-gradient(
-      90deg,
-      #043b37 0%,
-      rgba(4, 59, 55, 0.9) 35%,
-      rgba(4, 59, 55, 0.4) 70%,
-      rgba(4, 59, 55, 0.15)
+    /* GOLD GLOW TERANG — KANAN ATAS */
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(255, 214, 91, 0.55) 0%,
+      rgba(239, 190, 63, 0.32) 14%,
+      rgba(220, 169, 45, 0.14) 30%,
+      transparent 55%
     ),
+
+    /* GOLD GLOW — KANAN BAWAH */
+    radial-gradient(
+      circle at 100% 75%,
+      rgba(246, 195, 62, 0.25) 0%,
+      rgba(222, 170, 45, 0.10) 28%,
+      transparent 52%
+    ),
+
+    /* EMERALD GLOW — TENGAH */
+    radial-gradient(
+      circle at 62% 50%,
+      rgba(18, 126, 108, 0.42) 0%,
+      transparent 55%
+    ),
+
+    /* DASAR HIJAU ASETGO */
     linear-gradient(
       135deg,
-      #0c665d,
-      #173f3b
+      #003f38 0%,
+      #004c43 35%,
+      #00594e 65%,
+      #00483f 100%
     );
 }
 
 .hero-content {
   position: relative;
+
+  z-index: 2;
 
   color: white;
 
@@ -4237,5 +4259,19 @@ footer {
 @media (max-width: 420px) {
   .detail-header .back-button {
     padding: 8px 10px;
+  }
+}
+
+/* =========================================
+   HERO GOLD DECORATION RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .hero-background::before {
+    width: 300px;
+    height: 300px;
+    right: -120px;
+    top: -125px;
+    opacity: 0.7;
   }
 }
