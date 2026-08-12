@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
+import asetgoLogo from "../assets/asetgo-logo.png";
 
 function LoginAdmin({ onBack, onLogin }) {
   const [email, setEmail] = useState("");
@@ -32,18 +33,22 @@ function LoginAdmin({ onBack, onLogin }) {
 
   return (
     <div className="login-page">
-
       <div className="login-card">
 
         <button
           className="login-back"
           onClick={onBack}
+          type="button"
         >
           ← Kembali
         </button>
 
+        {/* LOGO ASETGO */}
         <div className="login-logo">
-          AB
+          <img
+            src={asetgoLogo}
+            alt="AsetGo"
+          />
         </div>
 
         <div className="login-label">
@@ -61,7 +66,6 @@ function LoginAdmin({ onBack, onLogin }) {
         <form onSubmit={handleLogin}>
 
           <div className="form-group">
-
             <label>
               Email
             </label>
@@ -74,13 +78,11 @@ function LoginAdmin({ onBack, onLogin }) {
                 setEmail(e.target.value)
               }
               required
+              disabled={loading}
             />
-
           </div>
 
-
           <div className="form-group">
-
             <label>
               Password
             </label>
@@ -93,17 +95,15 @@ function LoginAdmin({ onBack, onLogin }) {
                 setPassword(e.target.value)
               }
               required
+              disabled={loading}
             />
-
           </div>
-
 
           {error && (
             <div className="login-error">
               {error}
             </div>
           )}
-
 
           <button
             type="submit"
@@ -118,7 +118,6 @@ function LoginAdmin({ onBack, onLogin }) {
         </form>
 
       </div>
-
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
+import asetgoLogo from "../assets/asetgo-logo.png";
 
 const MAX_PHOTOS = 5;
 const MAX_FILE_SIZE = 15 * 1024 * 1024;
@@ -649,14 +650,16 @@ function FormAgunan({ onBack, onSaved }) {
 
         <div className="admin-brand">
 
-          <div className="admin-brand-logo">
-            AB
-          </div>
-
-          <div>
-            <strong>AGUNAN</strong>
-            <span>BANK</span>
-          </div>
+          <img
+            src={asetgoLogo}
+            alt="AsetGo"
+            style={{
+              width: "150px",
+              height: "auto",
+              display: "block",
+              objectFit: "contain",
+            }}
+          />
 
         </div>
 

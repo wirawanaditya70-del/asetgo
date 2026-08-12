@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../lib/supabase";
+import asetgoLogo from "../assets/asetgo-logo.png";
 
 function normalizeImages(value) {
   if (Array.isArray(value)) {
@@ -1384,23 +1385,16 @@ function EditAgunan({
           className="admin-brand"
         >
 
-          <div
-            className="admin-brand-logo"
-          >
-            AB
-          </div>
-
-          <div>
-
-            <strong>
-              AGUNAN
-            </strong>
-
-            <span>
-              BANK
-            </span>
-
-          </div>
+          <img
+            src={asetgoLogo}
+            alt="AsetGo"
+            style={{
+              width: "150px",
+              height: "auto",
+              display: "block",
+              objectFit: "contain",
+            }}
+          />
 
         </div>
 
